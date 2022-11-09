@@ -1,0 +1,42 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="{% static './style1.css/' %}">
+</head>
+<div class="logout">
+    <a href="/logout"><button>Logout</button></a>
+</div>
+<body>
+    <div class="cards">
+    {% for meme in data %} 
+    <!-- meme image -->
+        <div class="card">
+            <img src="{{meme.url}}" alt="Loading....">
+            <p>{{meme.id}}</p>
+
+            <!-- meme name -->
+            <div class="name">
+                <h3>{{meme.name}}</h3>
+            </div>
+            
+            <!-- download button -->
+            <div class="button">
+                <button> <a href="{{meme.url}}" download="{{meme.name}}">Download</a></button>
+            </div>
+        </div>
+
+       
+    {% endfor %}
+</div>
+
+
+   
+</body>
+
+</html>
